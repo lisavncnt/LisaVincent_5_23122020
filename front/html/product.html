@@ -32,20 +32,29 @@
             </div>
         </header>
 
-        <section class="row" id="list">
-            <article class="card" id="card-product">
-                <a href="product.html" class="card-link">
-                    <img src="" alt="" class="card-img">
-                    <div class="card-body">
-                        <h2 class="card-title" id="card-title"></h2>
-                        <h5 class="card-price"></h5> 
-                        <p class="description"></p>
+        <section class="row">
+            <article id="product" class="col-11">
+                <div class="col-6 image">
+                    <img src="" alt="" class="product-img">
+                </div>
+                <div class="col-6 info">
+                    <h1 class="product-title"></h1>
+                    <h2 class="product-price"></h2>
+                    <p class="product-description"></p>
+                    <div class="choice-lenses">
+                        <form name="formLense">
+                            Lentilles : 
+                            <select name="listLenses">
+                                <option selected>-- Choisissez votre lentille --</option>
+                            </select>
+                        </form>
                     </div>
-                </a>
+                    <button class="col-12 add-cart">Ajouter au panier</button>
+                </div>                
             </article>
         </section>
 
-        <footer class="bg-light"> <!-- Pied de page pour les liens sociaux et le mailto -->
+        <footer class="footer bg-light"> <!-- Pied de page pour les liens sociaux et le mailto -->
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -64,7 +73,6 @@
                 </div>
             </div>
         </footer>
-    </main>
 
     <script type="text/javascript" src="../js/product.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

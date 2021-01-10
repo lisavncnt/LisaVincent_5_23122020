@@ -77,3 +77,29 @@ header {
         
     }
 }
+
+/* Modification de la page "product.html" */
+#product {
+    margin: 15px;
+    .product-img {
+        float: left;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .info {
+        float: right;
+        width: 100%;
+        height: 100%;
+        .add-cart {
+            padding: 5px;
+            margin-top: 15px;
+            background: linear-gradient(148deg, rgba(252,176,69,1) 0%, rgba(131,58,180,1) 100%);
+            border: 1px solid transparent;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+        }
+    }
+}

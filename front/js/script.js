@@ -13,7 +13,8 @@ const camerasElts = async function () { // récupération des produits de façon
                 cloneCard.getElementsByClassName('card-title')[0].innerHTML = element.name;
                 cloneCard.getElementsByClassName('card-price')[0].innerHTML = element.price/100 + '€';
                 cloneCard.getElementsByClassName('description')[0].innerHTML = element.description;
-                cloneCard.getElementsByClassName('card-link')[0].href = cloneCard.getElementsByClassName('card-link')[0].href + "?id=" + element._id;
+                cloneCard.getElementsByClassName('card-link')[0].href = 
+                cloneCard.getElementsByClassName('card-link')[0].href + "?id=" + element._id;
 
                 cloneCard.removeAttribute("id");
                 document.getElementById('list').appendChild(cloneCard);
