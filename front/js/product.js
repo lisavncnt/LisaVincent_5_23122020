@@ -1,10 +1,10 @@
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('id');
 
-const url = "http://localhost:3000/api/cameras/" + myParam; // URL de l'API
+const url = "http://localhost:3000/api/cameras/" + myParam; // API's URL
 
-const camera = async function () { // récupération des produits de façon asynchrone
-    try { // permet de vérifier que l'API a bien été récupérée
+const camera = async function () { // retrieval of items asynchronously
+    try { // check if the API is well retrieved
         let response = await fetch(url);
         if (response.ok) {
             let data = await response.json();
@@ -15,6 +15,7 @@ const camera = async function () { // récupération des produits de façon asyn
             cardProduct.getElementsByClassName('product-price')[0].innerHTML = data.price/100 + "€";
             cardProduct.getElementsByClassName('product-description')[0].innerHTML = data.description;
 
+            // list of the lenses option
             var lenses = data.lenses;
             var d = document.formLense.listLenses;
             for (var i = 0; i < lenses.length; i++) {
@@ -22,26 +23,55 @@ const camera = async function () { // récupération des produits de façon asyn
                 d.options[d.length-1].text = lenses[i];
             }
 
-            document.getElementById('add-cart').addEventListener('click', function(event){
+            lenses.forEach(element => {
+                
+            })
 
-                if (localStorage.getItem('cart') !== null) {
+            //document.querySelector('.add-cart').addEventListener('click', function(addCart){
 
-                    var targetElement = event.target;
-                    let productId = targetElement.dataset.product-id;
-                    let cart = new Array();
-                    cart.push(productId);
+            //    if (localStorage.getItem('cart') !== null) {
+            //        var targetElement = addCart.target;
+            //        let productID = targetElement.dataset.productId;
+            //        let cart = new Array();
+            //        cart.push(productID);
+            //
+            //        localStorage.setItem(cart, data._id)
+            //    } else {
+            //        let cart = localStorage.getItem('cart');
+            //        if (localStorage.getItem('cart') == null) ) {
+            //            console.log(cart)
+            //        } else {
+            //            localStorage.setItem(cart, data.name);
+            //        }
+            //    }
+            //});
 
-                    localStorage.setItem('cart', cart);
-                } else {
-                    let cart = localStorage.getItem('cart');
-                    if (localStorage == 'cart') {
-                        null
-                    } else {
-                        localStorage.setItem('cart', cart);
+
+            // message to add items to the localStorage
+            let cart = document.querySelector('.add-cart');
+            function addCart() {
+                let option = document.querySelector('#lenseChoice');
+                let response = document.querySelector('.response');
+                let showResponse = document.querySelector('.showResponse');
+                response.appendChild(showResponse).innerHTML = "L'article a été ajouté au panier ! " + data.name + " " + lenses[i];
+
+                
+                if (localStorage !== null) {
+                    var item = [];
+                    $(document).on('click', addCart, function(cart) {
+                        item.push(data._id);
+                        localStorage.setItem(item, data.name);
+                        console.log(item);
+                    });
+               } else {
+                   localStorage.getItem(item, data.name);
+                   console.log(item);
                     }
-                }
-            });
-        } else { // message d'erreur si l'API n'a pas été récupérée correctement
+            }
+
+            cart.addEventListener('click', addCart, true);        
+
+        } else { // error message if the API is not retrieved
             console.error('Retour du serveur : ' + response.status);
         }
     } catch (e) {

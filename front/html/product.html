@@ -15,10 +15,10 @@
         <header class="bg-custom"> <!-- En-tête du site avec la navbar -->
             <div class="container">
                 <div class="row">
-                    <nav class=" col navbar navbar-expand-lg">
+                    <nav class=" col navbar navbar-expand-lg bg-dark">
                         <a class="menu-title navbar-brand" href="./index.html">Oricamera</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                         </button>
                         <div id="navbarContent" class="collapse navbar-collapse">
                             <ul class="navbar-nav">
@@ -45,16 +45,19 @@
                         <form name="formLense">
                             Lentilles : 
                             <select name="listLenses">
-                                <option selected>-- Choisissez votre lentille --</option>
+                                <option id="lenseChoice" selected>-- Choisissez votre lentille --</option>
                             </select>
                         </form>
                     </div>
-                    <button class="col-12 add-cart">Ajouter au panier</button>
+                    <button class="col-12 add-cart" data-productId="data._id">Ajouter au panier</button>
+                    <div class="response">
+                        <p class="showResponse"></p>
+                    </div>
                 </div>                
             </article>
         </section>
 
-        <footer class="footer bg-light"> <!-- Pied de page pour les liens sociaux et le mailto -->
+        <footer class="footer bg-dark"> <!-- Pied de page pour les liens sociaux et le mailto -->
             <div class="container">
                 <div class="row">
                     <div class="col">
