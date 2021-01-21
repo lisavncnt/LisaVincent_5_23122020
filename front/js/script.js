@@ -21,11 +21,17 @@ const camerasElts = async function () { // récupération des produits de façon
             });
             let card = document.getElementById('card-template');
             card.remove();
+  
         } else { // message d'erreur si l'API n'a pas été récupérée correctement
             console.error('Retour du serveur : ' + response.status);
         }
+
     } catch (e) {
         console.log(e);
     }
 }
+
+
 camerasElts();
+
+
