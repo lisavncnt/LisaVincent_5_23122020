@@ -132,3 +132,39 @@ footer a {
         }
     }
 }
+
+/*Modification de la page shop.html*/
+
+#shop {
+    width: 90%;
+    margin: auto;
+    .items-shop {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 90%;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 15px;
+        margin: 15px auto;
+        .shopImg {
+            width: 35%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px 0 0 15px;
+        }
+        .shop-body {
+            width: 45%;
+            margin-left: 25px;
+        }
+    }
+}
+
+a.validate,
+a.validate:hover {
+    position: relative;
+    left: 40%;
+    text-decoration: none;
+    color: #BF360C;
+    cursor: pointer;
+}
