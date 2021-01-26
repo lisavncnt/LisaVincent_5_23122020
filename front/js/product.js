@@ -23,7 +23,7 @@ const camera = async function () { // retrieval of items asynchronously
                 d.options[d.length-1].text = lenses[i];
             }
 
-            let cart = document.querySelector('.add-cart');
+            let cart = document.querySelector('.add-cart'); //sélectionné le btn add-cart
 
             let productNumbers = localStorage.getItem('cartNumbers');
 
@@ -32,36 +32,26 @@ const camera = async function () { // retrieval of items asynchronously
             }
               
             function addCart() {
-                         
-
-                if (localStorage.getItem('panier') === null) { 
-                    document.querySelector('.inShop span').textContent = 1;
-                    //si la clé 'panier' n'est pas trouvée dans le localStorage
-                    var items = [];
-                    items.push(data._id);
-                    localStorage.setItem('panier', JSON.stringify(items));
-                    //créer un tableau 'items' 
-                    //ajouter l'id sélectionné dans le tableau 'items'
-                    //ajouter dans le localStorage une nouvelle clé 'panier' avec le nouveau tableau 'items'
+                if (localStorage.getItem('panier') === null) { //si la clé 'panier' n'est pas trouvée dans le localStorage
+                    document.querySelector('.inShop span').textContent = 1; //ajouter 1 à l'icone panier
+                    
+                    var items = []; //créer un tableau 'items' 
+                    items.push(data._id); //ajouter l'id sélectionné dans le tableau 'items'
+                    localStorage.setItem('panier', JSON.stringify(items)); //ajouter dans localStorage une clé 'panier' avec le tableau 'items'
+                    cart.textContent = "Retirer du panier"; //changer la valeur du bouton par "Retirer";
+                    
                } else {
+                   var items = JSON.parse(localStorage.getItem('panier')); //sinon récupérer dans un JSON.parse les valeurs de la clé 'panier'
                    
-                   //si la clé 'panier' est trouvée dans le localStorage
-                   var items = JSON.parse(localStorage.getItem('panier'));
-                   
-                   //récupérer dans un JSON.parse les valeurs de la clé 'panier'
-                   if (!items.includes(data._id)) {
-                    items.push(data._id);
+                   if (!items.includes(data._id)) { //si le tableau 'items' ne contient pas l'id sélectionné
+                    items.push(data._id); //ajouter l'id sélectionné au tableau 'items'
                     document.querySelector('.inShop span').textContent = items.length;
-                    localStorage.setItem('panier', JSON.stringify(items));
-                   //si le tableau 'items' ne contient pas l'id sélectionné
-                   //ajouter l'id sélectionné au tableau 'items'
-                   //ajouter le nouveau tableau dans le localStorage
+                    localStorage.setItem('panier', JSON.stringify(items)); //ajouter le nouveau tableau dans le localStorage
                    }  
                 }
             };
 
-            cart.addEventListener('click', addCart, true);
-            //quand un click survient sur le bouton, exécutez la fonction addCart     
+            cart.addEventListener('click', addCart, true); //quand un click survient sur le bouton, exécutez la fonction addCart    
 
         } else { // error message if the API is not retrieved
             console.error('Retour du serveur : ' + response.status);

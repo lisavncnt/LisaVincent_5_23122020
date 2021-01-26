@@ -79,6 +79,12 @@ footer a {
         color: $color-secondary;
     }
 }
+footer {
+    margin-top: 50px;
+    li {
+        padding: 15px;
+    }
+}
 
 @media screen and (max-width:990px) {
     .card {
@@ -134,30 +140,68 @@ footer a {
 }
 
 /*Modification de la page shop.html*/
+.shopArr {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 2px solid lightgray;
+    h2 {
+        font-size: 25px;
+        font-weight: lighter;
+        border-right: 2px solid lightgray;
+        padding-left: 15px;
+    }
+    .prod {
+        width: 50%;
+        text-transform: uppercase;
+    }
+    .prix,
+    .quantity,
+    .total {
+        width: 20%;
+        text-transform: uppercase;
+    }
+}
 
 #shop {
-    width: 90%;
-    margin: auto;
-    .items-shop {
+    margin-bottom: 68px;
+    article {
+        width: 100%;
+        height: 100px;
         display: flex;
-        flex-wrap: wrap;
         flex-direction: row;
-        width: 90%;
-        height: 150px;
-        border: 1px solid black;
-        border-radius: 15px;
-        margin: 15px auto;
-        .shopImg {
-            width: 35%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px 0 0 15px;
+        flex-wrap: wrap;
+        border-bottom: 2px solid lightgray;
+        div {
+            height: 100px;
         }
-        .shop-body {
-            width: 45%;
-            margin-left: 25px;
+        .prod {
+            width: 44%;
+            display: flex;
+            img {
+                width: 35%;
+                margin: 5px;
+                object-fit: cover;
+            }
+            h2 {
+                margin: 25px;
+                font-weight: 200;
+            }
         }
+        .price,
+        .quantity,
+        .total {
+            width: 18%;
+            padding-top: 35px;
+            text-align: center;
+            h2 {
+                font-size: 19px;
+            }
+        }      
     }
+}
+.prix_total {
+    margin: 0 15px 50px;
 }
 
 a.validate,
@@ -167,4 +211,31 @@ a.validate:hover {
     text-decoration: none;
     color: #BF360C;
     cursor: pointer;
+    border: 1px solid black;
+    padding: 12px;
 }
+
+form {
+    margin: 0 auto;
+    width: 65%;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    div + div {
+        margin-top: 1em;
+    }
+    label {
+        display: inline-block;
+        width: 90px;
+    }
+    input, textarea {
+        font: 1em, sans-serif;
+        width: 300px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+        &:focus {
+            border-color: #000;
+        }
+    }
+}
+
