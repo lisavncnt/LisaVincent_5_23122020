@@ -34,7 +34,6 @@ const camera = async function () { // retrieval of items asynchronously
             function addCart() {
                 if (localStorage.getItem('panier') === null) { //si la clé 'panier' n'est pas trouvée dans le localStorage
                     document.querySelector('.inShop span').textContent = 1; //ajouter 1 à l'icone panier
-                    
                     var items = []; //créer un tableau 'items' 
                     items.push(data._id); //ajouter l'id sélectionné dans le tableau 'items'
                     localStorage.setItem('panier', JSON.stringify(items)); //ajouter dans localStorage une clé 'panier' avec le tableau 'items'
@@ -47,11 +46,27 @@ const camera = async function () { // retrieval of items asynchronously
                     items.push(data._id); //ajouter l'id sélectionné au tableau 'items'
                     document.querySelector('.inShop span').textContent = items.length;
                     localStorage.setItem('panier', JSON.stringify(items)); //ajouter le nouveau tableau dans le localStorage
-                   }  
+                    cart.textContent = "Retirer du panier";   
+                    }  
                 }
             };
 
-            cart.addEventListener('click', addCart, true); //quand un click survient sur le bouton, exécutez la fonction addCart    
+            function removeCard () {
+                var items = JSON.parse(localStorage.getItem('panier'));
+                if (items.includes(data._id)) {
+                    items.splice(data._id);
+                    localStorage.setItem('panier', JSON.stringify(items));
+                    document.querySelector('.inShop span').textContent = items.length;
+                }
+            }
+
+        if (cart.textContent === "Ajouter au panier") {
+            cart.addEventListener('click', addCart, true);
+        } else if (cart.textContent === "Retirer du panier") {
+            cart.addEventListener('click', removeCard, true);
+        } else {
+            return ;
+        }
 
         } else { // error message if the API is not retrieved
             console.error('Retour du serveur : ' + response.status);
@@ -61,3 +76,17 @@ const camera = async function () { // retrieval of items asynchronously
     }
 }
 camera();
+
+function initBtnPanier () {
+    if (localStorage.getItem('panier') === null) { 
+        return ;
+    }
+    var items = JSON.parse(localStorage.getItem('panier'));
+
+    if (items.includes(myParam)) { 
+        let cart = document.querySelector('.add-cart');
+        cart.textContent = "Retirer du panier";   
+    }
+}
+
+initBtnPanier();

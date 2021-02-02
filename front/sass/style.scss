@@ -167,13 +167,13 @@ footer {
     margin-bottom: 68px;
     article {
         width: 100%;
-        height: 100px;
+        height: 150px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         border-bottom: 2px solid lightgray;
         div {
-            height: 100px;
+            height: 150px;
         }
         .prod {
             width: 44%;
@@ -217,7 +217,7 @@ a.validate:hover {
 
 form {
     margin: 0 auto;
-    width: 65%;
+    width: 550px;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
@@ -226,11 +226,16 @@ form {
     }
     label {
         display: inline-block;
-        width: 90px;
+        width: 400px;
+        margin-top: 5px;
+        span {
+            color: red;
+            float: right;
+        }
     }
     input, textarea {
         font: 1em, sans-serif;
-        width: 300px;
+        width: 500px;
         box-sizing: border-box;
         border: 1px solid #999;
         &:focus {
@@ -239,3 +244,18 @@ form {
     }
 }
 
+.titleForm {
+    text-transform: uppercase;
+    font-weight: lighter;
+    text-align: center;
+    padding: 25px;
+}
+
+#formBtn {
+    margin: 25px auto;
+    padding: 15px;
+    text-transform: uppercase;
+    width: 350px;
+    margin-left: 35%;
+    margin-top: 60px;
+}

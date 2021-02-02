@@ -1,4 +1,4 @@
-const panier = async function () {
+const basket = async function () {
     if (localStorage.getItem('panier') === null) { 
         document.querySelector('.inShop span').textContent = 0;
    } else {
@@ -7,4 +7,4 @@ const panier = async function () {
    }
 }
 
-panier();
+basket();
