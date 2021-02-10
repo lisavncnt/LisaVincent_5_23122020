@@ -9,9 +9,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* ------------- ALL PAGES ------------- */
 header .menu-title {
   font-family: "Knewave", cursive;
-  width: 84%;
+  width: 80%;
   font-size: 30px;
   color: #fcb045;
 }
@@ -35,31 +36,10 @@ header .navbar-toggler {
   border: 1px solid #fcb045;
 }
 
-.row {
+section.row {
   justify-content: center;
-}
-
-.card {
-  margin-bottom: 15px;
-}
-.card .card-link {
-  cursor: pointer;
-  color: black;
-}
-.card .card-link:hover {
-  box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
-  -webkit-box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
-  -moz-box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
-  color: #BF360C;
-}
-.card .card-img {
-  width: 20%;
-  height: 100%;
-  object-fit: cover;
-}
-.card .card-body {
-  float: right;
-  width: 78%;
+  width: 100%;
+  margin: 0;
 }
 
 .jumbotron {
@@ -81,29 +61,38 @@ footer li {
   padding: 15px;
 }
 
-@media screen and (max-width: 990px) {
-  .card .card-img {
-    width: 100%;
-    height: 68%;
-  }
-  .card .card-body {
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .col-11 {
-    flex-direction: column;
-  }
-  .col-11 .col-6 {
-    max-width: 100%;
-    flex: 0 0 100%;
-  }
+/* ---------- PAGE INDEX ----------- */
+.card {
+  margin-bottom: 15px;
+  height: max-content;
 }
-/* Modification de la page "product.html" */
+.card .card-link {
+  cursor: pointer;
+  color: black;
+}
+.card .card-link:hover {
+  box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(152, 152, 152, 0.76);
+  color: #BF360C;
+}
+.card .card-img {
+  width: 20%;
+  height: 100%;
+  object-fit: cover;
+}
+.card .card-body {
+  float: right;
+  width: 78%;
+}
+
+/* --------- PAGE PRODUCT --------- */
 #product {
   margin: 15px;
+  padding: 0;
+}
+#product .image {
+  width: 45%;
 }
 #product .product-img {
   float: left;
@@ -113,7 +102,7 @@ footer li {
 }
 #product .info {
   float: right;
-  width: 100%;
+  width: 50%;
 }
 #product .info .add-cart {
   padding: 5px;
@@ -130,6 +119,16 @@ footer li {
   margin-top: 25px;
 }
 
+.choice-lenses {
+  width: 100%;
+}
+.choice-lenses form {
+  width: 90%;
+}
+.choice-lenses form select {
+  width: 90%;
+}
+
 /*Modification de la page shop.html*/
 .shopArr {
   display: flex;
@@ -140,17 +139,15 @@ footer li {
 .shopArr h2 {
   font-size: 25px;
   font-weight: lighter;
-  border-right: 2px solid lightgray;
   padding-left: 15px;
 }
 .shopArr .prod {
-  width: 50%;
+  width: 68%;
+  border-right: 2px solid lightgray;
   text-transform: uppercase;
 }
-.shopArr .prix,
-.shopArr .quantity,
-.shopArr .total {
-  width: 20%;
+.shopArr .prix {
+  width: 32%;
   text-transform: uppercase;
 }
 
@@ -169,7 +166,7 @@ footer li {
   height: 150px;
 }
 #shop article .prod {
-  width: 44%;
+  width: 68%;
   display: flex;
 }
 #shop article .prod img {
@@ -178,19 +175,15 @@ footer li {
   object-fit: cover;
 }
 #shop article .prod h2 {
-  margin: 25px;
+  padding: 50px;
   font-weight: 200;
 }
-#shop article .price,
-#shop article .quantity,
-#shop article .total {
-  width: 18%;
+#shop article .price {
+  width: 32%;
   padding-top: 35px;
   text-align: center;
 }
-#shop article .price h2,
-#shop article .quantity h2,
-#shop article .total h2 {
+#shop article .price h2 {
   font-size: 19px;
 }
 
@@ -198,20 +191,22 @@ footer li {
   margin: 0 15px 50px;
 }
 
-a.validate,
-a.validate:hover {
-  position: relative;
-  left: 40%;
+.ok {
+  background: linear-gradient(148deg, #fcb045 0%, #833ab4 100%);
+  height: 75px;
+  text-align: center;
+  height: max-content;
+}
+.ok a.validate,
+.ok a.validate:hover {
   text-decoration: none;
-  color: #BF360C;
   cursor: pointer;
-  border: 1px solid black;
   padding: 12px;
 }
 
 form {
   margin: 0 auto;
-  width: 550px;
+  width: 55%;
   padding: 1em;
   border: 1px solid #CCC;
   border-radius: 1em;
@@ -221,21 +216,42 @@ form div + div {
 }
 form label {
   display: inline-block;
-  width: 400px;
+  width: 25%;
   margin-top: 5px;
 }
 form label span {
   color: red;
-  float: right;
+  margin: 0 5px;
 }
 form input, form textarea {
   font: 1em, sans-serif;
-  width: 500px;
+  width: 70%;
   box-sizing: border-box;
   border: 1px solid #999;
 }
+form input:valid, form textarea:valid {
+  border: 1px solid black;
+}
+form input:invalid, form textarea:invalid {
+  border: 2px dashed red;
+}
 form input:focus, form textarea:focus {
   border-color: #000;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }
 
 .titleForm {
@@ -245,13 +261,167 @@ form input:focus, form textarea:focus {
   padding: 25px;
 }
 
-#formBtn {
-  margin: 25px auto;
+.submitBtn {
+  margin-top: 25px;
+  height: 75px;
+  text-align: center;
+  height: max-content;
+}
+.submitBtn #formBtn {
+  background: linear-gradient(148deg, #fcb045 0%, #833ab4 100%);
+  border: none;
   padding: 15px;
   text-transform: uppercase;
-  width: 350px;
-  margin-left: 35%;
-  margin-top: 60px;
+}
+
+.confirm {
+  margin: 15px;
+  padding: 10px 5px;
+}
+
+.msg_confirm,
+.orderId {
+  color: #2E7D32;
+  font-size: 15px;
+}
+
+/* ----------- RESPONSIVE ------------ */
+@media screen and (max-width: 990px) {
+  main.container {
+    width: 100%;
+    padding: 0;
+  }
+  main.container .jumbotron {
+    border-radius: 0;
+  }
+
+  .card {
+    margin: 0 25px 10px;
+  }
+  .card .card-img {
+    width: 100%;
+    height: 68%;
+  }
+  .card .card-body {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card .description {
+    text-align: justify;
+  }
+
+  #product {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+  }
+  #product .image {
+    width: 100%;
+    padding: 0;
+  }
+  #product .info {
+    width: 70%;
+    margin: 5px auto;
+    height: max-content;
+  }
+  #product .info .product-price, #product .info .product-title {
+    text-align: center;
+  }
+  #product .info .product-description {
+    text-align: justify;
+  }
+
+  #shopArr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid lightgray;
+  }
+  #shopArr h2 {
+    font-size: 24px;
+  }
+  #shopArr .prodArr {
+    width: 68%;
+    text-align: center;
+    border-right: 1px solid lightgray;
+  }
+  #shopArr .prixArr {
+    width: 32%;
+    text-align: center;
+  }
+
+  #shop {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  #shop .article {
+    margin: 4px auto;
+    height: max-content;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+  }
+  #shop .article .prod {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 68%;
+  }
+  #shop .article .prod img {
+    width: 100%;
+    margin: 0;
+    border-radius: 5px;
+  }
+  #shop .article .prod h2 {
+    padding: 5px 0;
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+  }
+  #shop .article .price {
+    width: 30%;
+    height: 100%;
+    margin-left: 5px;
+    text-align: center;
+  }
+
+  #basket {
+    margin: 15px;
+    font-size: 32px;
+  }
+  #basket span {
+    float: right;
+  }
+
+  .ok {
+    height: 75px;
+    padding-top: 20px;
+    cursor: pointer;
+  }
+  .ok a.validate {
+    color: black;
+    font-size: 24px;
+  }
+  .ok a.validate:hover {
+    color: #333;
+    font-weight: bold;
+  }
+
+  form {
+    width: 90%;
+    text-align: center;
+  }
+  form label {
+    margin-top: 15px;
+    width: 32%;
+  }
+  form input {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

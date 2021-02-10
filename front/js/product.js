@@ -54,10 +54,14 @@ const camera = async function () { // retrieval of items asynchronously
             function removeCard () {
                 var items = JSON.parse(localStorage.getItem('panier'));
                 if (items.includes(data._id)) {
-                    items.splice(data._id);
+                    var index = items.indexOf(data._id);
+                    if (index > -1) { 
+                        items.splice(index, 1);
+                    }
                     localStorage.setItem('panier', JSON.stringify(items));
                     document.querySelector('.inShop span').textContent = items.length;
                 }
+                cart.textContent = "Ajouter au panier";
             }
 
         if (cart.textContent === "Ajouter au panier") {
@@ -85,7 +89,7 @@ function initBtnPanier () {
 
     if (items.includes(myParam)) { 
         let cart = document.querySelector('.add-cart');
-        cart.textContent = "Retirer du panier";   
+        cart.textContent = "Retirer du panier"; 
     }
 }
 

@@ -13,10 +13,12 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* ------------- ALL PAGES ------------- */
+
 header {
     .menu-title {
         font-family: 'Knewave', cursive;
-        width: 84%;
+        width: 80%;
         font-size: 30px;
         color: $color-primary;
         &:hover, &:focus {
@@ -41,31 +43,10 @@ header {
     }
 }
 
-.row {
+section.row {
     justify-content: center;
-}
-
-.card {
-    margin-bottom: 15px;
-    .card-link {
-        cursor: pointer;
-        color: black;
-        &:hover{
-            box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
--webkit-box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
--moz-box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
-            color: #BF360C;
-        }
-    }
-    .card-img {
-        width: 20%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .card-body {
-        float: right;
-        width: 78%;
-    }
+    width: 100%;
+    margin: 0;
 }
 
 .jumbotron {
@@ -86,32 +67,39 @@ footer {
     }
 }
 
-@media screen and (max-width:990px) {
-    .card {
-        .card-img {
-            width: 100%;
-            height: 68%;
+/* ---------- PAGE INDEX ----------- */
+
+.card {
+    margin-bottom: 15px;
+    height: max-content;
+    .card-link {
+        cursor: pointer;
+        color: black;
+        &:hover{
+            box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
+            -webkit-box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
+            -moz-box-shadow: 0px 0px 5px 5px rgba(152,152,152,0.76);
+            color: #BF360C;
         }
-        .card-body {
-            width: 100%;
-            text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
     }
-    .col-11 {
-        flex-direction: column;
-        .col-6 {
-            max-width: 100%;
-            flex: 0 0 100%;
-        }
+    .card-img {
+        width: 20%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .card-body {
+        float: right;
+        width: 78%;
     }
 }
 
-/* Modification de la page "product.html" */
+/* --------- PAGE PRODUCT --------- */
 #product {
     margin: 15px;
+    padding: 0;
+    .image {
+        width: 45%;
+    }
     .product-img {
         float: left;
         width: 100%;
@@ -120,7 +108,7 @@ footer {
     }
     .info {
         float: right;
-        width: 100%;
+        width: 50%;
         .add-cart {
             padding: 5px;
             margin-top: 15px;
@@ -139,6 +127,16 @@ footer {
     }
 }
 
+.choice-lenses {
+    width: 100%;
+    form {
+        width: 90%;
+        select {
+            width: 90%;
+        }
+    }
+}
+
 /*Modification de la page shop.html*/
 .shopArr {
     display: flex;
@@ -148,17 +146,15 @@ footer {
     h2 {
         font-size: 25px;
         font-weight: lighter;
-        border-right: 2px solid lightgray;
         padding-left: 15px;
     }
     .prod {
-        width: 50%;
+        width: 68%;
+        border-right: 2px solid lightgray;
         text-transform: uppercase;
     }
-    .prix,
-    .quantity,
-    .total {
-        width: 20%;
+    .prix {
+        width: 32%;
         text-transform: uppercase;
     }
 }
@@ -176,7 +172,7 @@ footer {
             height: 150px;
         }
         .prod {
-            width: 44%;
+            width: 68%;
             display: flex;
             img {
                 width: 35%;
@@ -184,14 +180,12 @@ footer {
                 object-fit: cover;
             }
             h2 {
-                margin: 25px;
+                padding: 50px;
                 font-weight: 200;
             }
         }
-        .price,
-        .quantity,
-        .total {
-            width: 18%;
+        .price {
+            width: 32%;
             padding-top: 35px;
             text-align: center;
             h2 {
@@ -204,20 +198,22 @@ footer {
     margin: 0 15px 50px;
 }
 
-a.validate,
-a.validate:hover {
-    position: relative;
-    left: 40%;
+.ok {
+    background: linear-gradient(148deg, rgba(252,176,69,1) 0%, rgba(131,58,180,1) 100%);
+    height: 75px;
+    text-align: center;
+    height: max-content;
+    a.validate,
+    a.validate:hover {
     text-decoration: none;
-    color: #BF360C;
     cursor: pointer;
-    border: 1px solid black;
     padding: 12px;
+}
 }
 
 form {
     margin: 0 auto;
-    width: 550px;
+    width: 55%;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
@@ -226,22 +222,43 @@ form {
     }
     label {
         display: inline-block;
-        width: 400px;
+        width: 25%;
         margin-top: 5px;
         span {
             color: red;
-            float: right;
+            margin: 0 5px;
         }
     }
     input, textarea {
         font: 1em, sans-serif;
-        width: 500px;
+        width: 70%;
         box-sizing: border-box;
         border: 1px solid #999;
+        &:valid {
+            border: 1px solid black;
+        }
+        &:invalid {
+            border: 2px dashed red;
+        }
         &:focus {
             border-color: #000;
         }
     }
+}
+
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
 }
 
 .titleForm {
@@ -251,11 +268,163 @@ form {
     padding: 25px;
 }
 
-#formBtn {
-    margin: 25px auto;
-    padding: 15px;
-    text-transform: uppercase;
-    width: 350px;
-    margin-left: 35%;
-    margin-top: 60px;
+.submitBtn {
+    margin-top: 25px;
+    height: 75px;
+    text-align: center;
+    height: max-content;
+    #formBtn {
+        background: linear-gradient(148deg, rgba(252,176,69,1) 0%, rgba(131,58,180,1) 100%);
+        border: none;
+        
+        padding: 15px;
+        text-transform: uppercase;
+    }
+}
+
+.confirm {
+    margin: 15px;
+    padding: 10px 5px;
+}
+
+.msg_confirm,
+.orderId {
+    color: #2E7D32;
+    font-size: 15px;
+}
+
+/* ----------- RESPONSIVE ------------ */
+
+@media screen and (max-width:990px) {
+    main.container {
+        width: 100%;
+        padding: 0;
+        .jumbotron {
+            border-radius: 0;
+        }
+    }
+    .card {
+        margin: 0 25px 10px;
+        .card-img {
+            width: 100%;
+            height: 68%;
+        }
+        .card-body {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .description {
+            text-align: justify;
+        }
+        
+    }
+
+    #product {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        .image {
+            width: 100%;
+            padding: 0;
+        }
+        .info {
+            width: 70%;
+            margin: 5px auto;
+            height: max-content;
+            .product-price, .product-title {
+                text-align: center;
+            }
+            .product-description {
+                text-align: justify;
+            }
+        }
+    }
+    #shopArr {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-bottom: 1px solid lightgray;
+        h2 {
+            font-size: 24px;
+        }
+        .prodArr {
+            width: 68%;
+            text-align: center;
+            border-right: 1px solid lightgray;
+        }
+        .prixArr {
+            width: 32%;
+            text-align: center;
+        }
+    }
+    #shop {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        .article {
+            margin: 4px auto;
+            height: max-content;
+            border: 2px solid lightgray;
+            border-radius: 5px;
+            .prod {
+                display: flex;
+                flex-direction: column;
+                height: max-content;
+                width: 68%;
+                img {
+                    width: 100%;
+                    margin: 0;
+                    border-radius: 5px;
+                }
+                h2 {
+                    padding: 5px 0;
+                    margin: 0;
+                    font-size: 28px;
+                    text-align: center;
+                }
+            }
+            .price {
+                width: 30%;
+                height: 100%;
+                margin-left: 5px;
+                text-align: center;
+            }
+        }
+    }
+    #basket {
+        margin: 15px;
+        font-size: 32px;
+        span {
+            float: right;
+        }
+    }
+    .ok {
+        height: 75px;
+        padding-top: 20px;
+        cursor: pointer;
+        a.validate {
+            color: black;
+            font-size: 24px;
+            &:hover {
+                color: #333;
+                font-weight: bold;
+            }
+        }
+
+    }
+    form {
+        width: 90%;
+        text-align: center;
+        label {
+            margin-top: 15px;
+            width: 32%;
+        }
+        input {
+            width: 90%;
+        }
+    }
 }

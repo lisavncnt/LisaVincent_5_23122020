@@ -18,6 +18,7 @@ Promise.all(item)
 
         data.forEach(element => {
             var article = document.createElement('article');
+            article.classList.add("article");
 
             var div1 = document.createElement('div');
             div1.classList.add("prod");
@@ -29,32 +30,28 @@ Promise.all(item)
             var div2 = document.createElement('div');
             div2.classList.add("price");
             var price = document.createElement('h2');
+            price.classList.add('itemPrice');
             price.innerHTML = element.price/100 + ' €';
 
-            var div3 = document.createElement('div');
-            div3.classList.add("quantity");
-            var quantity = document.createElement('h2');
-            quantity.innerHTML = element.quantity;            
-
-            var div4 = document.createElement('div');
-            div4.classList.add("total");
-            var total = document.createElement('h2');
-            total.innerHTML = price * quantity;
-            
             article.appendChild(div1);
             article.appendChild(div2);
-            article.appendChild(div3);
-            article.appendChild(div4);
 
             div1.appendChild(image);
             div1.appendChild(name);
 
             div2.appendChild(price);
-            div3.appendChild(quantity);
-            div4.appendChild(total);
 
             section.appendChild(article);
         });
+
+        var priceList = $('#shop').find('.itemPrice');
+        var totalPrice = 0;
+
+        $.each(priceList, function(i, itemPrice) {
+            totalPrice += parseInt($(itemPrice).text())
+        });
+        $('.total_price').text(totalPrice + "€");
+
     }) 
 
 const btnValidate = document.querySelector('.validate');
