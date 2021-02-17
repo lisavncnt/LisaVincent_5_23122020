@@ -12,9 +12,10 @@ body {
 /* ------------- ALL PAGES ------------- */
 header .menu-title {
   font-family: "Knewave", cursive;
-  width: 80%;
   font-size: 30px;
   color: #fcb045;
+  width: 85%;
+  text-align: center;
 }
 header .menu-title:hover, header .menu-title:focus {
   color: #833ab4;
@@ -129,24 +130,24 @@ footer li {
   width: 90%;
 }
 
-/*Modification de la page shop.html*/
-.shopArr {
+/* -------- PAGE SHOP ---------*/
+#shopArr {
   display: flex;
   justify-content: space-around;
   width: 100%;
   border-bottom: 2px solid lightgray;
 }
-.shopArr h2 {
+#shopArr h2 {
   font-size: 25px;
   font-weight: lighter;
   padding-left: 15px;
 }
-.shopArr .prod {
-  width: 68%;
+#shopArr .prodArr {
+  width: 62%;
   border-right: 2px solid lightgray;
   text-transform: uppercase;
 }
-.shopArr .prix {
+#shopArr .prixArr {
   width: 32%;
   text-transform: uppercase;
 }
@@ -187,23 +188,29 @@ footer li {
   font-size: 19px;
 }
 
-.prix_total {
+.total {
   margin: 0 15px 50px;
+}
+.total .total_price {
+  font-size: 25px;
+  margin-right: 25px;
 }
 
 .ok {
   background: linear-gradient(148deg, #fcb045 0%, #833ab4 100%);
-  height: 75px;
+  padding: 25px;
   text-align: center;
-  height: max-content;
+  height: 75px;
 }
 .ok a.validate,
 .ok a.validate:hover {
+  color: black;
   text-decoration: none;
   cursor: pointer;
   padding: 12px;
 }
 
+/* ---------- PAGE FORM.HTML -------- */
 form {
   margin: 0 auto;
   width: 55%;
@@ -232,26 +239,16 @@ form input, form textarea {
 form input:valid, form textarea:valid {
   border: 1px solid black;
 }
-form input:invalid, form textarea:invalid {
-  border: 2px dashed red;
-}
 form input:focus, form textarea:focus {
   border-color: #000;
 }
-
-.error {
-  width: 100%;
-  padding: 0;
-  font-size: 80%;
-  color: white;
-  background-color: #900;
-  border-radius: 0 0 5px 5px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+form #firstName,
+form #address {
+  text-transform: capitalize;
 }
-
-.error.active {
-  padding: 0.3em;
+form #lastName,
+form #city {
+  text-transform: uppercase;
 }
 
 .titleForm {
@@ -280,13 +277,36 @@ form input:focus, form textarea:focus {
 }
 
 .msg_confirm,
+.address_confirm,
 .orderId {
   color: #2E7D32;
   font-size: 15px;
 }
 
+#first_name_error,
+#last_name_error,
+#email_error,
+#address_error,
+#city_error {
+  margin: 25px;
+}
+
+.fa-arrow-circle-left {
+  margin-right: 15px;
+  font-family: "Knewave", cursive;
+  font-size: 30px;
+  color: #fcb045;
+}
+.fa-arrow-circle-left:hover, .fa-arrow-circle-left:focus {
+  color: #833ab4;
+}
+
 /* ----------- RESPONSIVE ------------ */
 @media screen and (max-width: 990px) {
+  header .menu-title {
+    width: 80%;
+  }
+
   main.container {
     width: 100%;
     padding: 0;
@@ -413,7 +433,6 @@ form input:focus, form textarea:focus {
 
   form {
     width: 90%;
-    text-align: center;
   }
   form label {
     margin-top: 15px;

@@ -49,6 +49,7 @@ const camera = async function () { // retrieval of items asynchronously
                     cart.textContent = "Retirer du panier";   
                     }  
                 }
+                document.location.reload();
             };
 
             function removeCard () {
@@ -62,6 +63,7 @@ const camera = async function () { // retrieval of items asynchronously
                     document.querySelector('.inShop span').textContent = items.length;
                 }
                 cart.textContent = "Ajouter au panier";
+                document.location.reload();
             }
 
         if (cart.textContent === "Ajouter au panier") {

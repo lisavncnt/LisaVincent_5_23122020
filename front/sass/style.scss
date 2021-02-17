@@ -18,9 +18,10 @@ body {
 header {
     .menu-title {
         font-family: 'Knewave', cursive;
-        width: 80%;
         font-size: 30px;
         color: $color-primary;
+        width: 85%;
+        text-align: center;
         &:hover, &:focus {
             color: $color-secondary;
         }
@@ -137,8 +138,8 @@ footer {
     }
 }
 
-/*Modification de la page shop.html*/
-.shopArr {
+/* -------- PAGE SHOP ---------*/
+#shopArr {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -148,12 +149,12 @@ footer {
         font-weight: lighter;
         padding-left: 15px;
     }
-    .prod {
-        width: 68%;
+    .prodArr {
+        width: 62%;
         border-right: 2px solid lightgray;
         text-transform: uppercase;
     }
-    .prix {
+    .prixArr {
         width: 32%;
         text-transform: uppercase;
     }
@@ -194,22 +195,30 @@ footer {
         }      
     }
 }
-.prix_total {
+.total {
     margin: 0 15px 50px;
+    .total_price {
+        font-size: 25px;
+        margin-right: 25px;
+    }
 }
 
 .ok {
     background: linear-gradient(148deg, rgba(252,176,69,1) 0%, rgba(131,58,180,1) 100%);
-    height: 75px;
+    padding: 25px;
     text-align: center;
-    height: max-content;
+    height: 75px;
+    
     a.validate,
     a.validate:hover {
-    text-decoration: none;
-    cursor: pointer;
-    padding: 12px;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 12px;
+    }
 }
-}
+
+/* ---------- PAGE FORM.HTML -------- */
 
 form {
     margin: 0 auto;
@@ -237,28 +246,18 @@ form {
         &:valid {
             border: 1px solid black;
         }
-        &:invalid {
-            border: 2px dashed red;
-        }
         &:focus {
             border-color: #000;
         }
     }
-}
-
-.error {
-    width: 100%;
-    padding: 0;
-    font-size: 80%;
-    color: white;
-    background-color: #900;
-    border-radius: 0 0 5px 5px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.error.active {
-    padding: 0.3em;
+    #firstName,
+    #address{
+        text-transform: capitalize;
+    }
+    #lastName,
+    #city {
+        text-transform: uppercase;
+    }
 }
 
 .titleForm {
@@ -288,14 +287,38 @@ form {
 }
 
 .msg_confirm,
+.address_confirm,
 .orderId {
     color: #2E7D32;
     font-size: 15px;
 }
 
+#first_name_error,
+#last_name_error,
+#email_error,
+#address_error,
+#city_error {
+    margin: 25px;
+}
+
+.fa-arrow-circle-left {
+    margin-right: 15px;
+    font-family: 'Knewave', cursive;
+    font-size: 30px;
+    color: $color-primary;
+    &:hover, &:focus {
+        color: $color-secondary;
+    }
+}
+
 /* ----------- RESPONSIVE ------------ */
 
 @media screen and (max-width:990px) {
+    header {
+        .menu-title {
+            width: 80%;
+        }
+    }
     main.container {
         width: 100%;
         padding: 0;
@@ -418,7 +441,7 @@ form {
     }
     form {
         width: 90%;
-        text-align: center;
+        
         label {
             margin-top: 15px;
             width: 32%;
