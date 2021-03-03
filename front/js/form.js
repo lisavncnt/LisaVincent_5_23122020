@@ -77,7 +77,7 @@ function createOrder() {
     if (countError != 0) {
         return ;
     }
-
+    
     console.log('Posting request to fetch API...');
     
     let order = {
@@ -96,6 +96,9 @@ function createOrder() {
     let headers = {
         "Content-Type" : "application/json"
     }
+
+    var error = document.getElementsByClassName('error');
+    $(error).remove();
     
     fetch("http://localhost:3000/api/cameras/order", {
         method : 'POST',
